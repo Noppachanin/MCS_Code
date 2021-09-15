@@ -1,0 +1,38 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+#fixing the seed for reproducibility
+#of the result
+np.random.seed(10)
+
+size = 10000
+#drawing 10000 sample from
+#standard normal distribution
+rng = np.random.default_rng()
+rng.standard_normal()
+
+sample = rng.standard_normal(size)
+bin = np.arange(-5,5,0.1)
+plt.hist(sample, bins=bin, edgecolor='blue')
+
+# sns.kdeplot(rng.standard_normal( size))
+# sns.kdeplot(rng.standard_normal( size))
+# sns.kdeplot(rng.standard_normal(size))
+#
+# plt.legend([r"$\mu = 0, \sigma = 1$",
+#             r"$\mu = 0, \sigma = 1$",
+#             r"$\mu = 0, \sigma = 1$"])
+plt.title("Standard Normal Distribution")
+plt.show()
+print("\n************Original array:")
+print(sample)
+r1 = np.mean(sample)
+r2 = np.average(sample)
+print("\n************the Mean:")
+print("Mean of the random variables directly: ", r1)
+print("Mean of the formula: ", r2)
+r1= np.var(sample)
+r2 = np.mean((sample - np.mean(sample)) ** 2 )
+print("\n************the Variance:")
+print("Variance of the random variables directly: ", r1)
+print("Variance of the formula: ", r2)
